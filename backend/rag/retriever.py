@@ -5,10 +5,10 @@ import numpy as np
 from rag.embedder import get_model
 
 
-def retrieve_chunks(
-    query,
-    top_k=5
-):
+def retrieve_chunks(query, top_k=5):
+
+    model = get_model()
+
     index = faiss.read_index(
         "data/faiss_index/index.bin"
     )
@@ -18,8 +18,6 @@ def retrieve_chunks(
         "rb"
     ) as f:
         chunks = pickle.load(f)
-
-    model = get_model()
 
     query_embedding = model.encode(
         [query]
