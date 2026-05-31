@@ -1,4 +1,4 @@
-from database.mongodb import chat_collection
+memory_store = {}
 
 
 def save_message(
@@ -7,9 +7,11 @@ def save_message(
     message
 ):
 
-    chat_collection.insert_one(
+    if session_id not in memory_store:
+        memory_store[session_id] = []
+
+    memory_store[session_id].append(
         {
-            "session_id": session_id,
             "role": role,
             "message": message
         }
@@ -20,13 +22,7 @@ def get_conversation(
     session_id
 ):
 
-    messages = chat_collection.find(
-        {
-            "session_id": session_id
-        },
-        {
-            "_id": 0
-        }
+    return memory_store.get(
+        session_id,
+        []
     )
-
-    return list(messages)
