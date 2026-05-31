@@ -4,9 +4,6 @@ import numpy as np
 
 from rag.embedder import get_model
 
-# Load model once when application starts
-model = get_model()
-
 
 def retrieve_chunks(
     query,
@@ -21,6 +18,8 @@ def retrieve_chunks(
         "rb"
     ) as f:
         chunks = pickle.load(f)
+
+    model = get_model()
 
     query_embedding = model.encode(
         [query]
