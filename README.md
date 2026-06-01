@@ -2,6 +2,11 @@
 
 An AI-powered Academic Assistant that answers student queries using a Retrieval-Augmented Generation (RAG) pipeline built on institutional academic data.
 
+
+<img width="1920" height="835" alt="Screenshot (123)" src="https://github.com/user-attachments/assets/8b1068c3-50c9-4781-9444-c1ccad731bb2" />
+
+
+
 The system is designed to provide accurate responses about:
 
 * Admissions
@@ -89,4 +94,4 @@ FAISS Index Creation
         ↓
 Academic Assistant
 
-<img width="1920" height="835" alt="Screenshot (123)" src="https://github.com/user-attachments/assets/c526748f-6097-49fa-ab6f-0c28c9abd763" />
+
